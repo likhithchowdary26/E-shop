@@ -13,6 +13,7 @@ class Signup(View):
 
     def get(self, request):
         return render(request, 'signup.html')
+
     def post(self, request):
         postData = request.POST
         first_name = postData.get('firstname')
@@ -72,7 +73,7 @@ class Signup(View):
             print(first_name, last_name, phone, email, password)
             customer.password = make_password(customer.password)
             customer.register()
-            message=Customer.otpgen()
+            message = Customer.otpgen()
             send_mail(
                 'Subject - SPD2483 Mail Testing',
                 'Hello ' + first_name + ',\n' + message,
@@ -81,7 +82,7 @@ class Signup(View):
                     email,
                 ]
             )
-            return render(request,'otp.html')
+            return render(request, 'otp.html')
         else:
             data = {
                 'error': error_message,
