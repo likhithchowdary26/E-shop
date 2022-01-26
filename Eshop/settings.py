@@ -130,3 +130,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'eshopifysolutions@gmail.com'
 EMAIL_HOST_PASSWORD = 'Eshop123+'
 EMAIL_USE_TLS = True
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
